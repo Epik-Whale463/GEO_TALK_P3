@@ -9,9 +9,6 @@ from functools import lru_cache
 
 app = Flask(__name__)
 
-# Set your Google API key
-os.environ["GOOGLE_API_KEY"] = "AIzaSyDyK5yzznIGmCBQyB6dvedBTOFvAN-b8FI"
-
 # Initialize the Gemini model
 llm = ChatGoogleGenerativeAI(model="gemini-pro")
 
