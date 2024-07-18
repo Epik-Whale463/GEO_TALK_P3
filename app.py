@@ -6,15 +6,11 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import ChatPromptTemplate
 import requests
 from functools import lru_cache
-from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-# Load environment variables from .env file
-load_dotenv()
-
-# Get the API key from environment variables
-google_api_key = os.getenv("GOOGLE_API_KEY")
+# Set your Google API key
+os.environ["GOOGLE_API_KEY"] = "AIzaSyDyK5yzznIGmCBQyB6dvedBTOFvAN-b8FI"
 
 # Initialize the Gemini model
 llm = ChatGoogleGenerativeAI(model="gemini-pro")
