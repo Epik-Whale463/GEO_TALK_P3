@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Talk - Geospatial Query Processor</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>Geo Talk! - Talk with the Map</h1>
+        </header>
+        <main>
+            <p id="intro-text">
+                Welcome to Geo Talk! Ask questions about geography, landmarks, and locations worldwide using natural language. Our interactive map responds to your queries, providing a visual representation of the information you seek.
+            </p>
+            <div id="highlight-box">
+                <p><strong>Interact with the map using natural language!</strong> Ask about locations, and watch the map respond to your queries.</p>
+            </div>
+            <details id="help-section">
+                <summary>Need help? Click here for query examples</summary>
+                <ul>
+                    <li>"What is the population of Canada?"</li>
+                    <li>"Show me the largest national parks in the United States"</li>
+                    <li>"Describe the geography of Italy"</li>
+                    <li>"What are the main economic activities in Australia?"</li>
+                    <li>"Tell me about the history of the Eiffel Tower in Paris"</li>
+                </ul>
+            </details>
+            <section id="query-section">
+                <label for="query-input">Enter your geospatial query:</label>
+                <div class="input-group">
+                    <input type="text" id="query-input" placeholder="e.g., 'Tell me about the climate in Brazil' or 'What are the major cities in Japan?'" aria-label="Geospatial query input">
+                    <button id="submit-query" aria-label="Process query" title="Click to process your geospatial query">Process Query</button>
+                </div>
+            </section>
+            <div id="loading" aria-live="polite" hidden>
+                <span class="loader"></span> Processing query...
+            </div>
+            <div id="result-container">
+                <section id="map-section">
+                    <div id="map" aria-label="Interactive map displaying query results"></div>
+                </section>
+                <section id="result-section">
+                    <h2>Query Result</h2>
+                    <div class="result-box">
+                        <h3>Response</h3>
+                        <div id="query-response"></div>
+                    </div>
+                    <div class="result-box">
+                        <h3>Geospatial Context</h3>
+                        <div id="geospatial-context"></div>
+                    </div>
+                    <div class="result-box">
+                        <h3>Additional Information</h3>
+                        <div id="additional-info"></div>
+                    </div>
+                    <div id="locations">
+                        <div class="location-box">
+                            <h3>Explicit Locations</h3>
+                            <ul id="explicit-locations"></ul>
+                        </div>
+                        <div class="location-box">
+                            <h3>Implicit Locations</h3>
+                            <ul id="implicit-locations"></ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 Geospatial Query Processor (Rama Charan Pisupati). All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
